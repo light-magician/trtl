@@ -46,8 +46,8 @@ now install the project globally
 
 ```bash
 pip install pipx # get pipx
-pip install . --force # I force install this way in case there is a stale trtl
-pip install --upgrade . # to upgrade globally
+pipx install . --force # I force install this way in case there is a stale trtl
+pipx install --upgrade . # to upgrade globally
 ```
 
 uninstall
