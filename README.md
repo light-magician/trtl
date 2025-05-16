@@ -26,64 +26,32 @@ Learn about things trtl can do on its twitter page: https://x.com/trtldaemon
 
 ## CLI tool installation
 
-grant permissions to run these scripts
-navigate to `bin/` in the project root
-
-```bash
-chmod +x install.sh
-chmod +x update.sh
-chmod +x uninstall.sh
-```
-
-then run when needed
-
-```bash
-sudo ./install.sh
-sudo ./update.sh
-sudo ./uninstall.sh
-```
-
-## python setup
-
-create env
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-now you are running in the virtual env
-
-```bash
-pip freeze > requirements.txt
-```
-
-when you need to add more deps
-
-```bash
-deactivate
-```
-
-when finished
-
-## environment
-
-in project base
+first, make an `.env` in this project's root
 
 ```bash
 touch .env
 ```
 
-then open the `.env`
-and paste in your API key like this
+the `.env` should have these entries with your key's pasted in
 
-```text
-ANTHROPIC_API_KEY={your api key}
-```
-
-running as module with `python3` in project root
+(soon other search engines and AI providers will be supported)
 
 ```bash
-python3 -m trtl.cli
+OPENAI_API_KEY=xxxxxxxx
+TAVILY_API_KEY=xxxxxxxx
+
+```
+
+now install the project globally
+
+```bash
+pip install .
+pip install --upgrade .
+```
+
+if you want to develop against the project locally
+
+```bash
+poetry install
+poetry run trtl
 ```
