@@ -1,8 +1,9 @@
 # trtl deamon
 
-![alt text](splash/public/images/trtl-presidio.png)
+![alt text](trtldaemon2.png)
 
 A daily driver agent with:
+
 - access to a wide array of command line tools
 - ability to search out new tools to accomplish a task
 - long term memory about requested, successful executions, and personal prefs
@@ -10,16 +11,17 @@ A daily driver agent with:
 This agent is REDICULOUSLY UNSAFE!!!
 Because it can search the internet, download tools, and execute code
 arbitrarily, literally anything can happen. There are zero guard rails.
-You have been warned. 
+You have been warned.
 
-Trtl is fairly strong at coding tasks, and is much cheaper than 
-something like Claude Code. 
+Trtl is fairly strong at coding tasks, and is much cheaper than
+something like Claude Code.
 Right now it supports OpenAI models only.
-While coding it can edit files directly, which 
-should show in whatever editor you are using. 
+While coding it can edit files directly, which
+should show in whatever editor you are using.
 
 ## Demo's
-Learn about things trtl can do on its twitter page: https://x.com/trtldaemon 
+
+Learn about things trtl can do on its twitter page: https://x.com/trtldaemon
 ![alt text](trtl-demos.png)
 
 ## CLI tool installation
