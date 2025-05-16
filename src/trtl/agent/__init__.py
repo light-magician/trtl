@@ -1,4 +1,7 @@
+# system prompt
+import os
 import sqlite3
+from pathlib import Path
 from typing import Iterator, List
 
 import tiktoken
@@ -8,20 +11,20 @@ from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
-from memory import persistent_memory_vector_store
-from tools import tool_belt
+
+from trtl.memory import persistent_memory_vector_store
+from trtl.tools import tool_belt
+
 
 # ============================================================================
 # Graph + Agent Class
 # ============================================================================
-
-
 class State(MessagesState):
     recall_memories: List[str]
 
 
 # the system prompt
-with open("config/system_prompt.txt") as f:
+with open("src/trtl/config/system_prompt.txt") as f:
     system_prompt = f.read()
 
 prompt = ChatPromptTemplate.from_messages(

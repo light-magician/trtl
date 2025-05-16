@@ -3,10 +3,10 @@ from langchain_community.tools import ShellTool, WikipediaQueryRun
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_community.utilities import WikipediaAPIWrapper
 from langchain_openai import OpenAIEmbeddings
-from memory import save_persistent_memory, search_persistent_memories
 
-from .enhanced_terminal import EnhancedTerminal
-from .image_gen import OpenAIImageTool
+from trtl.memory import save_persistent_memory, search_persistent_memories
+from trtl.tools.enhanced_terminal import EnhancedTerminal
+from trtl.tools.image_gen import OpenAIImageTool
 
 # from shell_enhanced import ShellEnhanced
 

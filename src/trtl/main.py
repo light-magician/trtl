@@ -2,10 +2,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from cli import cli_loop, print_splash, print_tools
 from rich.console import Console
 
-from agent import Agent
+from .agent import Agent
+from .cli import cli_loop, print_splash, print_tools
 
 
 def main():

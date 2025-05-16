@@ -152,4 +152,4 @@ black = "^23.9"
 flake8 = "^6.0"
 
 [tool.poetry.scripts]
-trtl = "main:main"
+trtl = "trtl.main:main"
