@@ -1,6 +1,6 @@
 # trtl deamon
 
-![alt text](trtldaemon2.png)
+![alt text](imgs/trtldaemon2.png)
 
 A daily driver agent with:
 
@@ -22,7 +22,7 @@ should show in whatever editor you are using.
 ## Demo's
 
 Learn about things trtl can do on its twitter page: https://x.com/trtldaemon
-![alt text](trtl-demos.png)
+![alt text](imgs/trtl-demos.png)
 
 ## CLI tool installation
 
@@ -45,8 +45,15 @@ TAVILY_API_KEY=xxxxxxxx
 now install the project globally
 
 ```bash
-pip install .
-pip install --upgrade .
+pip install pipx # get pipx
+pip install . --force # I force install this way in case there is a stale trtl
+pip install --upgrade . # to upgrade globally
+```
+
+uninstall
+
+```bash
+pipx uninstall trtl
 ```
 
 if you want to develop against the project locally

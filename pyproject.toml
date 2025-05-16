@@ -6,12 +6,16 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "trtl"
 version = "0.1.0"
-description = "Natural-language OS automation agent"
+description = "cli agent"
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/light-magician/trtl"
 repository = "https://github.com/light-magician/trtl"
+packages = [
+  { include = "trtl", from = "src" }
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.10"
