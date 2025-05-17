@@ -1,9 +1,12 @@
+from pathlib import Path
+
 from langchain_chroma import Chroma
 from langchain_community.tools import ShellTool, WikipediaQueryRun
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_community.utilities import WikipediaAPIWrapper
 from langchain_openai import OpenAIEmbeddings
 
+import trtl
 from trtl.memory import save_persistent_memory, search_persistent_memories
 from trtl.tools.enhanced_terminal import EnhancedTerminal
 from trtl.tools.image_gen import OpenAIImageTool
@@ -31,8 +34,12 @@ The shell_commands tool gives the agent access to command line execution
 terminal = ShellTool()
 
 # Chroma RAG for CLI manuals (TLDR pages)
+PROJECT_ROOT = Path(trtl.__file__).resolve().parent
+DATA_DIR = PROJECT_ROOT / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
 cli_rag_retriever = Chroma(
-    persist_directory="data/tldr_rag_db",
+    persist_directory=str(DATA_DIR),
     collection_name="tldr_manuals",
     embedding_function=OpenAIEmbeddings(model="text-embedding-3-small"),
 ).as_retriever(search_kwargs={"k": 4})
