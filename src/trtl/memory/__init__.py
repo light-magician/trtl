@@ -1,4 +1,5 @@
 import uuid
+from pathlib import Path
 from typing import List
 
 from langchain_chroma import Chroma
@@ -6,6 +7,15 @@ from langchain_core.documents import Document
 from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import tool
 from langchain_openai import OpenAIEmbeddings
+
+import trtl
+
+# ─── Determine Project Base Directory ──────────────────────────────────────────
+# If this file lives at project_root/src/trtl/memory.py, then:
+PROJECT_ROOT = Path(trtl.__file__).resolve().parent
+PERSIST_DIR = PROJECT_ROOT / "trtl_persisted_memories_db"
+PERSIST_DIR.mkdir(parents=True, exist_ok=True)
+
 
 """
 Going with Chroma DB for the alpha.
@@ -27,11 +37,10 @@ TODO: there is a better design for this than instantiating
       Vector store should likely be created as part of Agent
       and should be passed into memory tool...?
 """
-persist_directory = "./trtl_persisted_memories_db"
 persistent_memory_vector_store = Chroma(
     collection_name="trtl_persisted_memories",
     embedding_function=OpenAIEmbeddings(model="text-embedding-3-small"),
-    persist_directory=persist_directory,  # Where to save data locally, remove if not necessary
+    persist_directory=str(PERSIST_DIR),  # now absolute to project base
 )
 
 memory_retriever = persistent_memory_vector_store.as_retriever(search_kwargs={"k": 3})
