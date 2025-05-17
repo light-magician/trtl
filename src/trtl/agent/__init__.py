@@ -1,4 +1,5 @@
 # system prompt
+import importlib.resources as pkg_resources
 import os
 import sqlite3
 from pathlib import Path
@@ -23,9 +24,8 @@ class State(MessagesState):
     recall_memories: List[str]
 
 
-# the system prompt
-with open("src/trtl/config/system_prompt.txt") as f:
-    system_prompt = f.read()
+system_prompt = pkg_resources.read_text("trtl.config", "system_prompt.txt")
+
 
 prompt = ChatPromptTemplate.from_messages(
     [
