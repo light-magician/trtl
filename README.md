@@ -62,3 +62,11 @@ if you want to develop against the project locally
 poetry install
 poetry run trtl
 ```
+
+### run in container
+
+```bash
+docker compose up -d
+docker exec -it trtl-daemon bash
+trtl
+```
