@@ -12,15 +12,17 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+import trtl
+
 load_dotenv()
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
 
-# === CONFIG ===
-TLDR_PATH = "../../../tldr/pages/common"  # Adjust if needed
-PERSIST_DIR = "./tldr_rag_db"
-COLLECTION_NAME = "tldr_manuals"
+# ─── Project Base & Data Directory ────────────────────────────────────────────
+PROJECT_ROOT = Path(trtl.__file__).resolve().parent
+DATA_DIR = PROJECT_ROOT / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # === LOAD & CHUNK FILES ===
 docs = []
