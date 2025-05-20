@@ -1,0 +1,17 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  trtl-daemon:
+    build: .
+    container_name: trtl-daemon
+    # load your API keys at runtime
+    env_file:
+      - .env
+    # keep stdin/tty so you can drop into `docker compose run …` if needed
+    stdin_open: true
+    tty: true
+    # use the default bridge network (allows outbound Internet)
+    network_mode: bridge
+    # override if you ever want another cmd:
+    # command: ["help"]
