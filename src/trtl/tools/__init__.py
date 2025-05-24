@@ -14,8 +14,6 @@ from trtl.tools.image_gen import OpenAIImageTool
 # from shell_enhanced import ShellEnhanced
 
 # internet search
-tavily_search = TavilySearchResults(max_results=1)
-
 """
 using Tavily for now to facilitate internet searches, only get 1k 
 requests per month
